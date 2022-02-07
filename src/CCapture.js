@@ -515,6 +515,8 @@ function CCGIFEncoder( settings ) {
 	this.ctx.fillStyle = "transparent";
   	this.sizeSet = false;
 
+	console.log("CCGIFEncoder (settings) == ",this.canvas, this.ctx)
+  	
   	this.encoder = new GIF({
 		workers: settings.workers,
 		quality: settings.quality,
@@ -551,6 +553,8 @@ CCGIFEncoder.prototype.add = function( canvas ) {
 	this.canvas.height = canvas.height;
 	this.ctx.drawImage( canvas, 0, 0 );
 	this.ctx.fillStyle = "transparent";
+
+	console.log("CCGIFEncoder prototype add canvas == ",this.canvas, this.ctx)
   	
 	this.encoder.addFrame( this.ctx, { copy: true, delay: this.settings.step } );
 	this.step();
@@ -845,7 +849,7 @@ function CCapture( settings ) {
 	}
 
 	function _capture( canvas ) {
-
+		console.log("_capture( canvas ) === ",canvas)
 		if( _capturing ) {
 
 			if( _settings.motionBlurFrames > 2 ) {
