@@ -550,7 +550,8 @@ CCGIFEncoder.prototype.add = function( canvas ) {
 	this.canvas.width = canvas.width;
 	this.canvas.height = canvas.height;
 	this.ctx.drawImage( canvas, 0, 0 );
-
+	this.ctx.fillStyle = "transparent";
+  	
 	this.encoder.addFrame( this.ctx, { copy: true, delay: this.settings.step } );
 	this.step();
 
@@ -603,7 +604,7 @@ function CCapture( settings ) {
 	var _timeDisplay = document.createElement( 'div' );
 	_timeDisplay.style.position = 'absolute';
 	_timeDisplay.style.left = _timeDisplay.style.top = 0
-	_timeDisplay.style.backgroundColor = 'black';
+	_timeDisplay.style.backgroundColor = 'transparent';
 	_timeDisplay.style.fontFamily = 'monospace'
 	_timeDisplay.style.fontSize = '11px'
 	_timeDisplay.style.padding = '5px'
@@ -613,6 +614,7 @@ function CCapture( settings ) {
 
 	var canvasMotionBlur = document.createElement( 'canvas' );
 	var ctxMotionBlur = canvasMotionBlur.getContext( '2d' );
+	ctxMotionBlur.fillStyle = "transparent";
 	var bufferMotionBlur;
 	var imageData;
 
