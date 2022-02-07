@@ -801,7 +801,7 @@ function CCapture( settings ) {
 			canvasMotionBlur.width = canvas.width;
 			canvasMotionBlur.height = canvas.height;
 			bufferMotionBlur = new Uint16Array( canvasMotionBlur.height * canvasMotionBlur.width * 4 );
-			ctxMotionBlur.fillStyle = '#0'
+			ctxMotionBlur.fillStyle = 'transparent'
 			ctxMotionBlur.fillRect( 0, 0, canvasMotionBlur.width, canvasMotionBlur.height );
 		}
 
