@@ -596,6 +596,7 @@ function CCapture( settings ) {
 		_capturing = false,
         _handlers = {};
 
+	console.log("encoder ========= ",_encoder)
 	_settings.framerate = _settings.framerate || 60;
 	_settings.motionBlurFrames = 2 * ( _settings.motionBlurFrames || 1 );
 	_verbose = _settings.verbose || false;
