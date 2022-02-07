@@ -512,6 +512,7 @@ function CCGIFEncoder( settings ) {
 
   	this.canvas = document.createElement( 'canvas' );
   	this.ctx = this.canvas.getContext( '2d' );
+	this.ctx.fillStyle = "transparent";
   	this.sizeSet = false;
 
   	this.encoder = new GIF({
