@@ -546,14 +546,15 @@ CCGIFEncoder.prototype.add = function( canvas ) {
 	if( !this.sizeSet ) {
 		this.encoder.setOption( 'width',canvas.width );
 		this.encoder.setOption( 'height',canvas.height );
+		this.encoder.setOption( 'background','transparent' );
 		this.sizeSet = true;
 	}
 
 	this.canvas.width = canvas.width;
 	this.canvas.height = canvas.height;
-	this.ctx.drawImage( canvas, 0, 0 );
 	this.ctx.fillStyle = "transparent";
-
+	this.ctx.drawImage( canvas, 0, 0 );
+	
 	console.log("CCGIFEncoder prototype add canvas == ",this.canvas, this.ctx)
   	
 	this.encoder.addFrame( this.ctx, { copy: true, delay: this.settings.step } );
@@ -817,6 +818,8 @@ function CCapture( settings ) {
 		//_log( 'Intermediate Frame: ' + _intermediateFrameCount );
 
 		ctxMotionBlur.drawImage( canvas, 0, 0 );
+		ctxMotionBlur.fillStyle = "transparent";
+
 		imageData = ctxMotionBlur.getImageData( 0, 0, canvasMotionBlur.width, canvasMotionBlur.height );
 		for( var j = 0; j < bufferMotionBlur.length; j+= 4 ) {
 			bufferMotionBlur[ j ] += imageData.data[ j ];
