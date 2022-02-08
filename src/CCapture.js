@@ -557,7 +557,7 @@ CCGIFEncoder.prototype.add = function( canvas ) {
 	
 	console.log("CCGIFEncoder prototype add canvas == ",this.canvas, this.ctx)
   	
-	this.encoder.addFrame( this.ctx, { copy: true, delay: this.settings.step } );
+	this.encoder.addFrame( this.ctx, { copy: true} );
 	this.step();
 
 	/*this.encoder.setSize( canvas.width, canvas.height );

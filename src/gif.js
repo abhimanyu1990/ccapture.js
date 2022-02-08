@@ -1076,7 +1076,7 @@
                                 options = {};
                             }
                             frame = {};
-                            frame.transparent = this.options.transparent;
+                            frame.transparent = true;
                             for (key in frameDefaults) {
                                 frame[key] = options[key] || frameDefaults[key];
                             }
@@ -1253,9 +1253,10 @@
                                 this._canvas = document.createElement("canvas");
                                 this._canvas.width = this.options.width;
                                 this._canvas.height = this.options.height;
+                                this._canvas.background = "transparent";
                             }
                             ctx = this._canvas.getContext("2d");
-                            ctx.setFill = this.options.background;
+                            ctx.setFill = "transparent";
                             ctx.fillStyle = "transparent";
                             ctx.fillRect(0, 0, this.options.width, this.options.height);
                             ctx.drawImage(image, 0, 0);
@@ -1269,7 +1270,7 @@
                                 last: index === this.frames.length - 1,
                                 delay: frame.delay,
                                 dispose: frame.dispose,
-                                transparent: frame.transparent,
+                                transparent: true,
                                 width: this.options.width,
                                 height: this.options.height,
                                 quality: this.options.quality,
